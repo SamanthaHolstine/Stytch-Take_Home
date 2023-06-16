@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+</head>
+<body>
+    <h1>Stytch User Management</h1>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User ID</th>
+            <th>Email</th>
+        </tr>
+         {% for u in users %}
+        <tr>
+            {% for el in u[0:] %}
+                <td>{{el}}</td>
+            {% endfor %}
+            <td>
+                <form action="/delete_user/{{ u[2] }}" method="post">
+                    <button type="submit">Delete User</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
